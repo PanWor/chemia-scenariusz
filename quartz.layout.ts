@@ -20,7 +20,6 @@ export const defaultContentPageLayout: PageLayout = {
       component: Component.Breadcrumbs(),
       condition: (page) => page.fileData.slug !== "index",
     }),
-    Component.ArticleTitle(),
     Component.TagList(),
   ],
   left: [
@@ -28,26 +27,10 @@ export const defaultContentPageLayout: PageLayout = {
     Component.MobileOnly(Component.Spacer()),
     Component.Flex({
       components: [
-        {
-          Component: Component.Search(),
-          grow: true,
-        },
         { Component: Component.Darkmode() },
         { Component: Component.ReaderMode() },
       ],
-    }),
-    Component.Explorer({
-      filterFn: (node) => {
-        // Hide by tag 'unlisted'
-        const isUnlisted = node.data?.tags?.includes("unlisted")
-
-        // Hide by specific filename (displayName is the actual string name)
-        const isTempFile = node.displayName === "temp-bitly"
-
-        // Return true to show, false to hide
-        return !(isUnlisted || isTempFile)
-      },
-    }),
+    })
   ],
   right: [Component.DesktopOnly(Component.TableOfContents()), Component.Backlinks()],
 }

@@ -1,3 +1,14 @@
 @use "./base.scss";
 
 // put your custom CSS here!
+
+/* Style for the text inside the brackets */
+.custom-bracket-text {
+  color: #86aac1;
+}
+
+/* Style for the brackets themselves */
+.custom-bracket {
+  color: #808080; /* Grayish color */
+  opacity: 0.6;   /* Optional: makes them look a bit more subtle */
+}

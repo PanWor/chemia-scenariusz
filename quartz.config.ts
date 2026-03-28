@@ -1,5 +1,6 @@
 import { QuartzConfig } from "./quartz/cfg"
 import * as Plugin from "./quartz/plugins"
+import { BracketColor } from "./quartz/plugins/transformers/bracketColor"
 
 /**
  * Quartz 4 Configuration
@@ -8,7 +9,7 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "Notatki",
+    pageTitle: "",
     pageTitleSuffix: "",
     enableSPA: true,
     enablePopovers: true,
@@ -55,6 +56,7 @@ const config: QuartzConfig = {
   },
   plugins: {
     transformers: [
+      BracketColor(),
       Plugin.FrontMatter(),
       Plugin.CreatedModifiedDate({
         priority: ["frontmatter", "git", "filesystem"],
